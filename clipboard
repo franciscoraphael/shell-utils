@@ -1,0 +1,7 @@
+### Clipboard utility ###
+# Easily copy and paste from X's clipboard
+#   e.g.: date | clipIn
+#   e.g.: clipOut | xargs echo
+# Dependency: xclip
+alias clipIn='xclip -in -selection clipboard'
+alias clipOut='xclip -out -selection clipboard'

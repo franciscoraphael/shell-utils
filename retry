@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# parameters
+timeout=$1
+shift
+cmd="$*"
+
+# variables
+attempt=1
+
+# retry loop
+while [ $SECONDS -lt $timeout ] && ! eval "$cmd"
+do
+  #echo "Failed attemp. Trying again."
+  echo "Failed attemp #$attempt. Trying again."
+  attempt=$((attempt+1))
+done
+
+[ $SECONDS -ge $timeout ] && echo "TIMEOUT (${timeout}s)"

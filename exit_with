@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# parameters
+exit_code=$1; shift;
+message="$*"
+
+# validations
+# TODO: exit_code is required and should be a number
+
+# message
+if [ "$message" ]; then
+  if [ "$exit_code" == "0" ]; then
+    echo "$message"
+  else
+    echo "$message" >&2
+  fi
+fi
+
+# exiting
+exit $exit_code
